@@ -16,7 +16,7 @@
     <p class="font-bold text-2xl">Kategori</p>
     <p class="text-[#25252579] mt-5">Menyediakan berbagai macam kue untuk melengkapi harimu terasa nikmat.</p>
     <div class="grid grid-cols-3 gap-14 my-10 place-items-center">
-      <div class=" cursor-pointer rounded-md bg-[#FF99001A] text-center py-10 px-10" v-for="data in dataKategori" :key="data.id" @click="this.idKategori = data.id">
+      <div class=" cursor-pointer rounded-md bg-[#FF99001A] text-center py-10 px-10 hover:bg-[#ff990023]" v-for="data in dataKategori" :key="data.id" @click="this.idKategori = data.id">
         <div class="circle flex rounded-full w-14 h-14 bg-[#FF5858] justify-center items-center">
           <p class=" text-xl mautoy-">{{ data.id }}</p>
         </div>
@@ -35,7 +35,7 @@
     <p class="font-bold text-2xl">Rekomendasi Produk</p>
     <p class="text-white mt-5">Disini kami menampilkan kue yang paling sering dicari dan laris oleh para pelanggan.</p>
     <div class="grid grid-cols-3 place-items-center my-10 gap-20">
-        <div class="bg-white p-5 w-auto rounded-md" v-for="produk in dataProduk" :key="produk.id">
+        <div class="bg-white p-5 w-auto rounded-md " v-for="produk in dataProduk" :key="produk.id">
           <div class=" w-full">
             <img :src="produk.image" class="">
           </div>
@@ -48,7 +48,9 @@
                 <div class="w-2 h-2 rounded-full bg-[#D9D9D9CC]"></div>
                 <p>{{ produk.review }} Review</p>
               </div>
-              <font-awesome-icon :icon="[ 'fas', 'arrow-right' ]" class="text-lg" />
+              <div class="cursor-pointer hover:bg-[#dadada4c] rounded-full w-8 h-9 flex">
+                <font-awesome-icon :icon="[ 'fas', 'arrow-right' ]" class="text-lg m-auto" />
+              </div>
             </div>
           </div>
         </div>
@@ -121,7 +123,9 @@
           .catch(err =>{
             console.log(err)
           })
-      }
+      },
+      
+      
       
     },
     updated(){

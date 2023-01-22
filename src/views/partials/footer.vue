@@ -1,8 +1,8 @@
 <template>
     <footer class=" flex h-100 bg-[#FF5858] px-36 py-20 text-white gap-56">
         <div class="container text-2xl">
-            <span class="text-[#421707] mr-3 font-bold">Barakatih</span>
-            <span>Kitchen</span>
+            <span class="text-[#421707] mr-3 font-bold cursor-pointer" @click="toTop">Barakatih</span>
+            <span class="cursor-pointer" @click="toTop">Kitchen</span>
             <p class="my-5 mb-10 text-base">Kami memberikan kualitas yang terbaik untuk produk kami. Yuk pesan sekarang!</p>
             <a href="" class=" bg-[#421707] px-5 py-3 rounded-md text-sm">Beli Disini</a>
         </div>
@@ -30,6 +30,19 @@
         </div>
     </footer>
 </template>
+
+<script>
+export default{
+    methods:{
+        toTop(){
+        window.scroll({
+          top:0,
+          behavior: "smooth"
+        })
+      },
+    }
+}
+</script>
 
 <style scoped>
 
