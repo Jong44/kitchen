@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar flex justify-between items-center px-32 py-14 bg-[#FF5858]">
+    <nav class="navbar flex justify-between items-center px-32 py-14 bg-[#FF5858] max-sm:p-10">
         <div class=" text-center flex gap-2 text-[26px]">
             <p class="font-bold">Barakatih</p>
             <p class=" text-white">Kitchen</p>
@@ -15,6 +15,12 @@
 </template>
 
 <style scoped>
+
+    @media only screen and (max-width: 640px){
+        .a-link{
+            display: none;
+        }
+    }
 
     *{
         margin: 0;
