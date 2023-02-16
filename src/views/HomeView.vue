@@ -1,5 +1,5 @@
 <template>
-  <section class="hero flex bg-[#FF5858] h-100 w-100 px-32 pb-24 pt-5  max-sm:p-10 max-sm:block">
+  <section class="hero flex bg-[#FF5858] h-100 w-100 px-32 pb-24 pt-5  max-sm:p-10 max-sm:block" ref="Home" id="home">
     <div class="container  text-white">
       <p class="text-[67px] max-sm:text-[40px] leading-normal font-bold mb-10">Nikmati Dan Rasakan Kelezatannya</p>
       <p  class="mb-12 w-72">Menyediakan berbagai macam kue dan menerima request yang diajukan pelanggan.</p>
@@ -12,8 +12,8 @@
   </section>
   
 
-  <section class="text-center py-20 px-32 max-sm:px-10">
-    <p class="font-bold text-2xl">Kategori</p>
+  <section class="text-center py-20 px-32 max-sm:px-10" id="kategori">
+    <p class="font-bold text-2xl "  ref="Kategori">Kategori</p>
     <p class="text-[#25252579] mt-5">Menyediakan berbagai macam kue untuk melengkapi harimu terasa nikmat.</p>
     <div class="grid grid-cols-3 gap-14 max-sm:gap-15 my-10 place-items-center max-sm:grid-cols-2">
       <div class=" cursor-pointer rounded-md bg-[#FF99001A] text-center py-10 px-10 hover:bg-[#ff990023]" v-for="data in dataKategori" :key="data.id" @click="this.idKategori = data.id">
@@ -31,8 +31,8 @@
   
 
 
-  <section class="text-center py-20 px-32 bg-[#FF5858] max-sm:p-10">
-    <p class="font-bold text-2xl">Rekomendasi Produk</p>
+  <section class="text-center py-20 px-32 bg-[#FF5858] max-sm:p-10" id="produk">
+    <p class="font-bold text-2xl"  ref="Produk">Rekomendasi Produk</p>
     <p class="text-white mt-5">Disini kami menampilkan kue yang paling sering dicari dan laris oleh para pelanggan.</p>
     <div class="grid grid-cols-3 place-items-center my-10 gap-20 max-sm:grid-cols-2">
         <div class="bg-white p-5 w-auto rounded-md max-sm:w-40 max-sm:p-2 " v-for="produk in dataProduk" :key="produk.id">
@@ -59,8 +59,8 @@
   </section>
 
 
-  <section class="text-center py-20 px-48 max-sm:p-10">
-    <p class="font-bold text-2xl">Testimoni</p>
+  <section class="text-center py-20 px-48 max-sm:p-10" id="testimoni">
+    <p class="font-bold text-2xl"  ref="Testimoni">Testimoni</p>
     <p class="text-white mt-5 text-[#25252579]">Berikut merupakan testi-testi dari pelanggan kami yang puas dengan pembelian kue di Kitchen Barakatih.</p>
     <div class="flex mt-36 gap-56 items-center max-sm:block">
       <div class="w-[340px] h-[340px] max-sm:w-[260px] max-sm:h-[260px] border-[1px] border-[#aeaeae] rounded-md  max-sm:my-5">

@@ -5,14 +5,63 @@
             <p class=" text-white">Kitchen</p>
         </div>
         <div class="flex gap-10 text-[17px]">
-            <RouterLink to="/" class="a-link">Beranda</RouterLink>
-            <RouterLink to="/" class="a-link">Kategori</RouterLink>
-            <RouterLink to="/" class="a-link">Produk</RouterLink>
-            <RouterLink to="/" class="a-link">Testimoni</RouterLink>
+            <p @click="scrollDashboard()" class="a-link cursor-pointer">Beranda</p>
+            <p @click="scrollKategori()"  class="a-link cursor-pointer">Kategori</p>
+            <p @click="scrollProduk()" class="a-link cursor-pointer">Produk</p>
+            <p @click="scrollTestimoni()"   class="a-link cursor-pointer">Testimoni</p>
+        </div>
+        <div class="hidden max-sm:block cursor-pointer" @click="menu = !menu">
+            <font-awesome-icon :icon="[ 'fas', 'bars' ]" class="text-lg m-auto" />
+        </div>
+        <div class="menu" v-show="menu">
+            <RouterLink to="/" class=""><p @click="scrollDashboard()">Beranda</p></RouterLink>
+            <RouterLink to="/" class=""><p @click="scrollKategori()">Kategori</p></RouterLink>
+            <RouterLink to="/" class=""><p @click="scrollProduk()">Produk</p></RouterLink>
+            <RouterLink to="/" class=""><p @click="scrollTestimoni()">Testimoni</p></RouterLink>
         </div>
     </nav>
 
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent ({
+        data(){
+            return{
+                menu: false
+            }
+                
+            
+        },
+        methods:{
+            scrollDashboard(): void{
+                const id = document.getElementById('dashboard')
+                if(id){
+                    id.scrollIntoView({behavior: 'smooth'})
+                }
+            },
+            scrollKategori (): void{
+                const id = document.getElementById('kategori')
+                if(id){
+                    id.scrollIntoView({behavior: 'smooth'})
+                }
+            },
+            scrollProduk (): void{
+                const id = document.getElementById('produk')
+                if(id){
+                    id.scrollIntoView({behavior: 'smooth'})
+                }
+            },
+            scrollTestimoni (): void{
+                const id = document.getElementById('testimoni')
+                if(id){
+                    id.scrollIntoView({behavior: 'smooth'})
+                }
+            },
+        }
+    })
+</script>
 
 <style scoped>
 
@@ -39,8 +88,20 @@
     }
 
 
-    a.a-link:hover:after{
+    .a-link:hover:after{
         width: 100%;
+    }
+
+    .menu{
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        width: 200px;
+        background-color: white;
+        color: #000;
+        height: 150px;
+        padding: 30px;
+        border-radius: 10px;
     }
 
 
