@@ -23,6 +23,8 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 axios.defaults.baseURL = 'https://kitchen-63271-default-rtdb.firebaseio.com/'
 
 
+
+
 app.use(router)
 
 app.mount('#app')

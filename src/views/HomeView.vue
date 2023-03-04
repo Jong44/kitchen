@@ -1,4 +1,5 @@
 <template>
+  <myHeader></myHeader>
   <section class="hero flex bg-[#FF5858] h-100 w-100 px-32 pb-24 pt-5  max-sm:p-10 max-sm:block" ref="Home" id="home">
     <div class="container  text-white">
       <p class="text-[67px] max-sm:text-[40px] leading-normal font-bold mb-10">Nikmati Dan Rasakan Kelezatannya</p>
@@ -7,6 +8,50 @@
     </div>
     <div class="container py-14">
       <div class=" border-black border-[1px] w-96 h-96 m-auto max-sm:w-[18rem]">
+        <div class="flex">
+          <div class="">
+            <div class="px-5 py-5 bg-[#fff] opacity-70 text-[#421707] font-bold text-sm w-[10rem] -mt-20 -ml-5 rounded-md">
+              <p>Harga Terjangkau</p>
+            </div>
+          </div>
+          <div class="">
+            <div class=" flex justify-center px-3 py-2 bg-black w-8 rounded-full -mt-4">
+              <div class=" bg-white p-2 rounded-full"></div>
+            </div>
+          </div>
+          <div class="">
+            <div class="bg-white px-7 py-5 rounded-md -mt-20 ml-10 w-64 text-sm">
+              <img src="../assets/product.png" alt="">
+              <div class=" flex flex-col gap-3">
+                <p class=" font-bold">Kue Coklat</p>
+                <p class=" text-[#404040]">Topping: Oreo,Meses</p>
+                <p class=" font-bold">Rp 35.000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex -mt-10">
+          <div class="">
+            <div class="bg-white px-7 py-5 rounded-md -ml-20 w-64 text-sm">
+              <img src="../assets/product.png" alt="">
+              <div class=" flex flex-col gap-3">
+                <p class=" font-bold">Kue Coklat</p>
+                <p class=" text-[#404040]">Topping: Oreo,Meses</p>
+                <p class=" font-bold">Rp 35.000</p>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class=" flex justify-center px-3 py-2 bg-black w-8 rounded-full mt-[10.6rem] ml-10">
+              <div class=" bg-white p-2 rounded-full"></div>
+            </div>
+          </div>
+          <div class="">
+            <div class="px-5 py-5 bg-[#fff] rounded-md opacity-70 text-[#421707] font-bold text-sm w-[11rem] mt-[13rem] ml-2 text-center">
+              <p>Lezat dan Menarik</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -35,9 +80,9 @@
     <p class="font-bold text-2xl"  ref="Produk">Rekomendasi Produk</p>
     <p class="text-white mt-5">Disini kami menampilkan kue yang paling sering dicari dan laris oleh para pelanggan.</p>
     <div class="grid grid-cols-3 place-items-center my-10 gap-20 max-sm:grid-cols-2">
-        <div class="bg-white p-5 w-auto rounded-md max-sm:w-40 max-sm:p-2 " v-for="produk in dataProduk" :key="produk.id">
-          <div class=" w-full">
-            <img :src="produk.image" class="">
+        <div class="bg-white p-10 w-auto rounded-md max-sm:w-40 max-sm:p-2 " v-for="produk in dataProduk" :key="produk.id">
+          <div class=" w-full mb-5 rounded-md">
+            <img :src="produk.image" class=" rounded-md">
           </div>
           <div class="grid content px-5 gap-5 max-sm:text-sm">
             <p class="text-[#421707] text-2xl font-bold max-sm:text-xl">{{ produk.nama }}</p>
@@ -86,10 +131,13 @@
     </div>
     
   </section>
+  <myFooter></myFooter>
 
 </template>
 
 <script >
+  import myHeader from './partials/navbar.vue'
+  import myFooter from './partials/footer.vue'
 
   import axios from 'axios';
 
@@ -100,6 +148,10 @@
         idKategori : 1,
         dataProduk : ''
       }
+    },
+    components:{
+      myHeader,
+      myFooter
     },
 
     created(){
