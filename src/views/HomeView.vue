@@ -88,7 +88,7 @@
             <p class="text-[#421707] text-2xl font-bold max-sm:text-xl">{{ produk.nama }}</p>
             <p class="text-[#bbbbbb]">{{ produk.description }}</p>
             <div class="flex justify-around items-center">
-              <a href=" https://wa.me/6281238683080?text=mau%20order%20bro" class=" flex gap-2 items-center justify-center border bg-[#FF5858] hover:bg-[#fb1616] text-white py-3 px-10">
+              <a href=" https://wa.me/6285921284759?text=halo%20ka,%20mau%20order%20kue" class=" flex gap-2 items-center justify-center border bg-[#FF5858] hover:bg-[#fb1616] text-white py-3 px-10">
                 <font-awesome-icon :icon="[ 'fab', 'whatsapp' ]" class="text-lg m-auto" />
                 <p>Pesan</p>
               </a>
