@@ -20,12 +20,18 @@
             </div>
             <div class="flex gap-3 items-center mb-5">
                 <font-awesome-icon :icon="[ 'fas', 'phone-volume' ]" class="text-lg" />
-                <p>+624716461646</p>
+                <p>+6281225500632</p>
             </div>
             <div class="flex gap-5 max-sm:my-5">
-                <font-awesome-icon :icon="[ 'fab', 'instagram' ]" class="text-lg" />
-                <font-awesome-icon :icon="[ 'fab', 'twitter' ]" class="text-lg" />
-                <font-awesome-icon :icon="[ 'fab', 'facebook' ]" class="text-lg" />
+                <a href="https://www.instagram.com/bara.katihkitchen/" target="_blank">
+                    <font-awesome-icon :icon="[ 'fab', 'instagram' ]" class="text-lg" />
+                </a>
+                <a href="https://twitter.com/" target="_blank">
+                    <font-awesome-icon :icon="[ 'fab', 'twitter' ]" class="text-lg" />
+                 </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <font-awesome-icon :icon="[ 'fab', 'facebook' ]" class="text-lg" />
+                </a>
             </div>
         </div>
     </footer>

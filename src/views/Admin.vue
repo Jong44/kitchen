@@ -67,12 +67,22 @@
                 const imageUrl = await getDownloadURL(storageRef);
                 this.form.gambar = imageUrl
             },
+            reset(){
+                this.form.nama = ""
+                this.form.deskripsi = ""
+                this.form.nama_kategori = ""
+                this.form.gambar = ""
+                this.form.harga = ''
+            },
             addProduct(){
                 axios.post('data_produk.json', this.form)
                     .then(response => {
                         this.alert = "Success Menambahkan Data"
                         console.log(response)
                         this.SuccessAlert(this.alert)
+                        this.showModal = false
+                        this.getData()
+                        this.reset()
                     })
                     .catch(error => {
                         // Error
