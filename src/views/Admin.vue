@@ -2,10 +2,12 @@
     import axios from 'axios';
     import { initializeApp } from "firebase/app";
     import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+    import Swal from 'sweetalert2'
 
     export default{
         data(){
             return{
+                filterParam: "",
                 dataProoduk: '',
                 dataKategori: '',
                 showModal: false,
@@ -15,8 +17,9 @@
                     deskripsi : "",
                     harga : "",
                     gambar : "",
-                    kategori : ""
+                    nama_kategori : ""
                 },
+                alert : ""
             }
         },
         created(){
@@ -62,9 +65,38 @@
                 const storageRef = ref(storage, `product/${file.name}`);
                 await uploadBytes(storageRef, file);
                 const imageUrl = await getDownloadURL(storageRef);
-                this.form.gambar = imageUrl;
-                console.log(this.form.gambar)
+                this.form.gambar = imageUrl
             },
+            addProduct(){
+                axios.post('data_produk.json', this.form)
+                    .then(response => {
+                        this.alert = "Success Menambahkan Data"
+                        console.log(response)
+                        this.SuccessAlert(this.alert)
+                    })
+                    .catch(error => {
+                        // Error
+                        console.error(error)
+                    })
+            },
+            SuccessAlert(alert){
+                Swal.fire({
+                    title: "Success!",
+                    icon: "success",
+                    text : alert
+                })
+            },
+            filter(){
+                axios.get('data_produk.json')
+                    .then(ress=> {
+                        this.dataProoduk= ress.data.filter(item => {
+                            return item.nama.toLowerCase().includes(this.filterParam.toLowerCase())
+                        })
+                    })
+                    .catch(err =>{
+                        console.log(err)
+                    })
+            }
         }
     }
 
@@ -80,7 +112,7 @@
         </div>
         <div class="flex items-center border border-gray-400 px-3 py-2 gap-5 rounded-md">
             <font-awesome-icon :icon="[ 'fas', 'search' ]"/>
-            <input type="text" placeholder="Search Cake" class="input">
+            <input type="text" placeholder="Search Cake" class="input" @input="filter()" v-model="filterParam">
         </div>
     </nav>
     <button class="px-5 py-2 bg-[#FF5858] my-10 mx-20 rounded-md text-white" @click="showModal = true">
@@ -110,7 +142,7 @@
     <!-- MODAL -->
     <div class=" bg-[#0007] fixed inset-0 overflow-y-hidden flex flex-1 justify-center" v-if="showModal">
         <div class=" bg-white w-[30rem] m-auto px-10 py-5">
-            <form action="">
+            <form @submit.prevent="addProduct" >
                 <p class=" font-bold text-center">Unggah Produk</p>
                 <div class="mt-5">
                     <p class=" font-bold mb-3">Nama Produk</p>
@@ -128,7 +160,7 @@
                     <p class=" font-bold mb-3">Kategori</p>
                     <div class="flex items-center border rounded-md p-2 gap-5">
                         <font-awesome-icon :icon="[ 'fas', 'chevron-down' ]"/>
-                        <select name="" id="" class=" w-full appearance-none border-0 active:outline-0 focus:outline-0" v-model="form.kategori">
+                        <select name="" id="" class=" w-full appearance-none border-0 active:outline-0 focus:outline-0" v-model="form.nama_kategori">
                             <option value="" v-for="kategori in dataKategori" :key="kategori.id">
                                 {{ kategori.kategori }}
                             </option>
@@ -143,7 +175,7 @@
                     <button class="px-5 py-2 mt-5 rounded-md border" @click="showModal = false">
                     Batal
                     </button>
-                    <button class="px-5 py-2 bg-[#FF5858] mt-5 rounded-md text-white" @click="showModal = true">
+                    <button class="px-5 py-2 bg-[#FF5858] mt-5 rounded-md text-white" type="submit">
                     Tambah
                     </button>
                 </div>
@@ -156,5 +188,6 @@
     .input:focus, .input, .input:active, .input:hover{
         border: none;
         border-color: transparent;
+        outline: 0px;
     }
 </style>

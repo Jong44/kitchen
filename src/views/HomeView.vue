@@ -88,14 +88,10 @@
             <p class="text-[#421707] text-2xl font-bold max-sm:text-xl">{{ produk.nama }}</p>
             <p class="text-[#bbbbbb]">{{ produk.description }}</p>
             <div class="flex justify-around items-center">
-              <p>{{ produk.rating }}</p>
-              <div class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-[#D9D9D9CC]"></div>
-                <p>{{ produk.review }} Review</p>
-              </div>
-              <div class="cursor-pointer hover:bg-[#dadada4c] rounded-full w-8 h-9 flex">
-                <font-awesome-icon :icon="[ 'fas', 'arrow-right' ]" class="text-lg m-auto" />
-              </div>
+              <a href=" https://wa.me/6281238683080?text=mau%20order%20bro" class=" flex gap-2 items-center justify-center border bg-[#FF5858] hover:bg-[#fb1616] text-white py-3 px-10">
+                <font-awesome-icon :icon="[ 'fab', 'whatsapp' ]" class="text-lg m-auto" />
+                <p>Pesan</p>
+              </a>
             </div>
           </div>
         </div>
@@ -109,8 +105,8 @@
     <p class="text-white mt-5 text-[#25252579]">Berikut merupakan testi-testi dari pelanggan kami yang puas dengan pembelian kue di Kitchen Barakatih.</p>
     <div class="flex mt-36 gap-56 items-center max-sm:block">
       <div class="w-[340px] h-[340px] max-sm:w-[260px] max-sm:h-[260px] border-[1px] border-[#aeaeae] rounded-md  max-sm:my-5">
-        <div class="rectangle w-full  h-full bg-[#FF9900] rounded-md">
-            <!-- <img src="../assets/testimoni/1.png"> -->
+        <div class="rectangle w-full flex justify-center items-center h-full bg-[#FF9900] rounded-md">
+            <img src="../assets/testimoni/1.png" class=" absolute top-[180.8rem] left-20  ">
         </div>
       </div>
       <div class="border-[#aeaeae] border-[1px] rounded-md px-10 py-14 max-sm:p-8 font-medium">
@@ -123,8 +119,8 @@
         <p class="">Enak banget mba kuenya,,meleleh pas digigit di mulut, rasanya pas, dan bikin nagih... </p>
       </div>
       <div class="w-[340px] h-[340px] max-sm:w-[260px] max-sm:h-[260px] border-[1px] border-[#aeaeae] rounded-md">
-        <div class="rectangle w-full  h-full bg-[#FF9900] rounded-md">
-            <!-- <img src="../assets/testimoni/1.png"> -->
+        <div class="rectangle w-full flex justify-center items-center  h-full bg-[#FF9900] rounded-md">
+            <img src="../assets/testimoni/2.png" class=" absolute top-[211.1rem] right-0  ">
         </div>
       </div>
       
